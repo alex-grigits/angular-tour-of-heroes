@@ -1,11 +1,26 @@
-<h3>Top Heroes</h3>
-<div class="grid grid-pad">
-  <a *ngFor="let hero of heroes"
-      [routerLink]="['/detail', hero.id]"
-      class="col-1-4">
-    <div class="module hero">
-      <h4>{{ hero.name }}</h4>
+<div class="row my-2">
+    <div class="col-sm-12">
+        <h3 class="display-4">Top Heroes</h3>
     </div>
-  </a>
 </div>
-<hero-search></hero-search>
+
+<div class="row">
+    <div class="col-sm-3 my-2" *ngFor="let hero of heroes">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">{{ hero.name }}</h4>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <a [routerLink]="['/detail', hero.id]" class="btn btn-outline-info d-block">Go to Details</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div class="grid grid-pad">
+    <a *ngFor="let hero of heroes"
+        [routerLink]="['/detail', hero.id]"
+        class="col-1-4">
+		<div class="module hero">
+			<h4>{{ hero.name }}</h4>
+		</div>
+    </a>
+</div> -->

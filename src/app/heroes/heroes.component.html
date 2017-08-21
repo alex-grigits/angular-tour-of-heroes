@@ -1,24 +1,49 @@
-<div>
-    <label>Hero name:</label> <input #heroName />
-    <button (click)="add(heroName.value); heroName.value=''">
-        Add
-    </button>
+<div class="row my-3">
+    <div class="col">
+        <form class="form-inline">
+            <label class="sr-only" for="inlineFormInputName2"></label>
+            <input #heroName type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInputName2" placeholder="Hero name">
+        
+            <button (click)="add(heroName.value); heroName.value=''" class="btn btn-outline-primary"><i class="fa fa-plus d-inline-block mr-2" aria-hidden="true"></i>Add</button>
+        </form>
+    </div>
 </div>
 
-<ul class="heroes">
-    <li *ngFor="let hero of heroes"
-        (click)="onSelect(hero)"
-        [class.selected]="hero === selectedHero">
-        <span class="badge">{{ hero.id }}</span>
-        <span>{{ hero.name }}</span>
-        <button class="delete"
-                (click)="delete(hero); $event.stopPropagation()">x
-        </button>
-    </li>
-</ul>
-<div *ngIf="selectedHero">
-    <h2>
-        {{ selectedHero.name | uppercase }} is my hero
-    </h2>
-    <button (click)="gotoDetails()">View Details</button>
+<div class="row">
+
+    <div class="col">
+        <table class="table table-hover bg-white">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Hero Name</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let hero of heroes"
+                    (click)="onSelect(hero)"
+                    [class.selected]="hero === selectedHero">
+                    <th>{{ hero.id }}</th>
+                    <th>{{ hero.name }}</th>
+                    <th>
+                        <i (click)="delete(hero)" class="fa fa-trash float-right" aria-hidden="true"></i>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col">
+        <div *ngIf="selectedHero" class="card text-white bg-secondary mb-3">
+            <img class="card-img-top" [src]="selectedHero.img" alt="Card image cap">
+            <div class="card-body">
+                <h4 class="card-title">{{ selectedHero.name | uppercase }}</h4>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a (click)="gotoDetails()" class="btn btn-primary float-right">View Details</a>
+            </div>
+        </div>
+    </div>
+
 </div>
+
