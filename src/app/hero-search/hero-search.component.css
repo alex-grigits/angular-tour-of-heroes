@@ -6,9 +6,9 @@
   position: absolute;
   left: 0;
   top: 100%;
-  width: 71%;
 }
 
 .list-group-item {
+  z-index: 999;
   padding: 5px 10px;
 }

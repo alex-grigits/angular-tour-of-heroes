@@ -1,17 +1,23 @@
 <div class="row my-3">
-    <div class="col">
-        <form class="form-inline">
-            <label class="sr-only" for="inlineFormInputName2"></label>
-            <input #heroName type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" id="inlineFormInputName2" placeholder="Hero name">
-        
-            <button (click)="add(heroName.value); heroName.value=''" class="btn btn-outline-primary"><i class="fa fa-plus d-inline-block mr-2" aria-hidden="true"></i>Add</button>
-        </form>
+    <div class="col-sm-12 col-md-6">
+        <div class="input-group my-2">
+            <input #heroName
+                type="text"
+                class="form-control"
+                placeholder="Hero name">
+            <span class="input-group-btn">
+                <button (click)="add(heroName.value); heroName.value=''"
+                    class="btn btn-info" type="button">
+                    <i class="fa fa-plus d-inline-block mr-2" aria-hidden="true"></i>Add
+                </button>
+            </span>
+        </div>
     </div>
 </div>
 
 <div class="row">
 
-    <div class="col">
+    <div class="col-12 col-sm-6">
         <table class="table table-hover bg-white">
             <thead>
                 <tr>
@@ -34,13 +40,13 @@
         </table>
     </div>
 
-    <div class="col">
-        <div *ngIf="selectedHero" class="card text-white bg-secondary mb-3">
+    <div class="col-12 col-sm-6">        
+        <div *ngIf="selectedHero" class="card text-white bg-white text-dark mb-3">
             <img class="card-img-top" [src]="selectedHero.img" alt="Card image cap">
             <div class="card-body">
                 <h4 class="card-title">{{ selectedHero.name | uppercase }}</h4>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a (click)="gotoDetails()" class="btn btn-primary float-right">View Details</a>
+                <p class="card-text">{{ selectedHero.desc }}</p>
+                <a (click)="gotoDetails()" class="btn btn-info text-light float-right">View Details</a>
             </div>
         </div>
     </div>

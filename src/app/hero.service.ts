@@ -9,13 +9,11 @@ import { HEROES } from './mock-heroes';
 
 export class HeroService {
   private heroesUrl = 'api/heroes';
+  private headers = new Headers({ 'Content-Type': 'application/json' });
   private handleError(error: any): Promise<any> {
     console.error('An error occured', error);
     return Promise.reject(error.message || error);
   };
-  private headers = new Headers({
-    'Content-Type': 'application/json'
-  });
 
   constructor( private http: Http ) {}
 
