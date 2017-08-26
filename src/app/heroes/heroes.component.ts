@@ -13,15 +13,15 @@ export class HeroesComponent implements OnInit {
     selectedHero: Hero;
     heroes: Hero[];
 
-    constructor( 
+    constructor(
         private heroService: HeroService,
         private router: Router
     ) {}
-    
+
     ngOnInit(): void {
         this.getHeroes();
     }
-    
+
     onSelect(hero: Hero): void {
         this.selectedHero = hero;
     }
@@ -46,7 +46,7 @@ export class HeroesComponent implements OnInit {
 
     delete(hero: Hero): void {
         this.heroService.delete(hero.id)
-            .then(() => { 
+            .then(() => {
                 this.heroes = this.heroes.filter(h => h !== hero);
                 if (this.selectedHero === hero) { this.selectedHero = null; }
             });

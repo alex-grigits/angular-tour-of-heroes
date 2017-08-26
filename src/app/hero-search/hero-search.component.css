@@ -1,14 +1,14 @@
 .form-inline {
-  position: relative;
+	position: relative;
 }
 
 .list-group {
-  position: absolute;
-  left: 0;
-  top: 100%;
+	position: absolute;
+	left: 0;
+	top: 100%;
 }
 
 .list-group-item {
-  z-index: 999;
-  padding: 5px 10px;
+	z-index: 999;
+	padding: 5px 10px;
 }
