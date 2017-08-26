@@ -1,8 +1,8 @@
 body {
-  background-color: #eee;
+	background-color: #eee;
 }
 
 button:hover,
 a:hover {
-  cursor: pointer;
+	cursor: pointer;
 }
